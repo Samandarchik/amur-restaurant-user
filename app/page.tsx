@@ -3,7 +3,7 @@
 import { useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { HeroSection } from "@/components/hero-section"
-import { FeaturedFoods } from "@/components/featured-foods"
+import { RestaurantSeating } from "@/components/featured-foods"
 import { Categories } from "@/components/categories"
 import { AboutSection } from "@/components/about-section"
 
@@ -28,7 +28,7 @@ export default function HomePage() {
     <div className="min-h-screen">
       <HeroSection />
       <Categories />
-      <FeaturedFoods />
+      <RestaurantSeating />
       <AboutSection />
     </div>
   )

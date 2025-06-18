@@ -45,9 +45,12 @@ export default function OrdersPage() {
         setIsLoading(true)
         const params = statusFilter !== "all" ? { status: statusFilter } : undefined
         const response = await api.getUserOrders(params, token || undefined)
-        setOrders(response.orders)
+        // Bu yerda xatolikni bartaraf etish
+        setOrders(response?.orders || [])
       } catch (error) {
         console.error("Failed to load orders:", error)
+        // Xatolik bo'lgan holda ham bo'sh array o'rnatamiz
+        setOrders([])
       } finally {
         setIsLoading(false)
       }
@@ -109,7 +112,7 @@ export default function OrdersPage() {
           <Loader2 className="h-8 w-8 animate-spin mx-auto mb-4" />
           <p className="text-gray-600">Buyurtmalar yuklanmoqda...</p>
         </div>
-      ) : orders.length === 0 ? (
+      ) : !orders || orders.length === 0 ? (
         <div className="text-center py-12">
           <div className="text-gray-400 mb-4">
             <Clock className="h-16 w-16 mx-auto" />
@@ -148,7 +151,7 @@ export default function OrdersPage() {
                     <div>
                       <h4 className="font-medium mb-3">Buyurtma tarkibi</h4>
                       <div className="space-y-2">
-                        {order.foods.slice(0, 3).map((item) => (
+                        {order.foods?.slice(0, 3).map((item) => (
                           <div key={item.id} className="flex items-center space-x-3">
                             <img
                               src={item.imageUrl || "/placeholder.svg"}
@@ -163,7 +166,7 @@ export default function OrdersPage() {
                             </div>
                           </div>
                         ))}
-                        {order.foods.length > 3 && (
+                        {order.foods && order.foods.length > 3 && (
                           <p className="text-sm text-gray-500">+{order.foods.length - 3} ta boshqa taom</p>
                         )}
                       </div>
