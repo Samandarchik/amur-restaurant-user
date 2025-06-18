@@ -29,7 +29,7 @@ export default function DastafkaPage() {
                 </p>
                 <ul className="space-y-2 text-gray-600">
                   <li>• 30-40 daqiqa ichida yetkazib berish</li>
-                  <li>• Toshkent bo'ylab xizmat</li>
+                  <li>• Samarqand bo'ylab xizmat</li>
                   <li>• Issiq holda yetkazib berish</li>
                   <li>• Xavfsiz qadoqlash</li>
                 </ul>
@@ -43,11 +43,11 @@ export default function DastafkaPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Phone className="h-5 w-5 text-blue-600" />
-                  <span>+998 90 123 45 67</span>
+                  <span>+ 998 94 700 07 70</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-blue-600" />
-                  <span>Toshkent sh., Amir Temur ko'chasi 10-uy</span>
+                  <span>Samarqand shahar, Kaftarcha</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-blue-600" />

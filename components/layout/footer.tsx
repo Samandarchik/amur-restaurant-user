@@ -61,7 +61,7 @@ export function Footer() {
                 onClick={handlePhoneCall}
               >
                 <Phone className="h-4 w-4 text-orange-400" />
-                <span className="text-gray-400">+998 90 123 45 67</span>
+                <span className="text-gray-400">+ 998 94 700 07 70</span>
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="h-4 w-4 text-orange-400" />
@@ -69,7 +69,7 @@ export function Footer() {
               </li>
               <li className="flex items-start space-x-2">
                 <MapPin className="h-4 w-4 text-orange-400 mt-1" />
-                <span className="text-gray-400">Toshkent sh., Amir Temur ko'chasi 10-uy</span>
+                <span className="text-gray-400">Samarqand shahar, Kaftarcha</span>
               </li>
             </ul>
           </div>

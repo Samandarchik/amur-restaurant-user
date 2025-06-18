@@ -34,6 +34,21 @@ export default function OrdersPage() {
   const [statusFilter, setStatusFilter] = useState("all")
   const [showAuthModal, setShowAuthModal] = useState(false)
 
+  // Helper function to fix image URL
+  const getImageUrl = (imageUrl: string) => {
+    if (!imageUrl) return "/placeholder.svg"
+    
+    // Check if imageUrl already contains localhost or starts with http
+    if (imageUrl.includes('localhost') || imageUrl.startsWith('http')) {
+      // Replace localhost URL with demo.iqbo.uz and extract the path
+      const urlPath = imageUrl.replace(/^https?:\/\/[^\/]+/, '')
+      return `https://demo.iqbo.uz${urlPath}`
+    }
+    
+    // If it's just a path, prepend the base URL
+    return `https://demo.iqbo.uz${imageUrl.startsWith('/') ? imageUrl : '/' + imageUrl}`
+  }
+
   useEffect(() => {
     if (!isAuthenticated) {
       setShowAuthModal(true)
@@ -154,7 +169,7 @@ export default function OrdersPage() {
                         {order.foods?.slice(0, 3).map((item) => (
                           <div key={item.id} className="flex items-center space-x-3">
                             <img
-                              src={item.imageUrl || "/placeholder.svg"}
+                              src={getImageUrl(item.imageUrl)}
                               alt={item.name}
                               className="w-10 h-10 object-cover rounded-md"
                             />

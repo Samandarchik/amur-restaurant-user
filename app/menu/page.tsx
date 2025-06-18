@@ -28,6 +28,21 @@ export default function MenuPage() {
   }
   const searchParams = useSearchParams()
 
+  // Helper function to fix image URL
+  const getImageUrl = (imageUrl: string) => {
+    if (!imageUrl) return "/placeholder.svg?height=200&width=300"
+    
+    // Check if imageUrl already contains localhost or starts with http
+    if (imageUrl.includes('localhost') || imageUrl.startsWith('http')) {
+      // Replace localhost URL with demo.iqbo.uz and extract the path
+      const urlPath = imageUrl.replace(/^https?:\/\/[^\/]+/, '')
+      return `https://demo.iqbo.uz${urlPath}`
+    }
+    
+    // If it's just a path, prepend the base URL
+    return `https://demo.iqbo.uz${imageUrl.startsWith('/') ? imageUrl : '/' + imageUrl}`
+  }
+
   // Load initial data
   useEffect(() => {
     const loadData = async () => {
@@ -246,13 +261,14 @@ export default function MenuPage() {
             >
               <div className="relative">
                 <img
-                  src={food.imageUrl || "/placeholder.svg?height=200&width=300"}
+                  src={getImageUrl(food.imageUrl)}
                   alt={food.name}
                   className="w-full h-48 object-cover transition-transform duration-300 hover:scale-110"
                   onError={(e) => {
                     e.currentTarget.src = "/placeholder.svg?height=200&width=300"
                   }}
                 />
+
                 {food.is_popular && <Badge className="absolute top-2 left-2 bg-orange-500 animate-pulse">Mashhur</Badge>}
                 {food.discount > 0 && (
                   <Badge className="absolute top-2 right-2 bg-red-500 animate-bounce">-{food.discount}%</Badge>

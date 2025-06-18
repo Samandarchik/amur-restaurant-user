@@ -40,11 +40,11 @@ export default function SaboyPage() {
               <CardContent className="space-y-4">
                 <div className="flex items-center gap-2">
                   <Phone className="h-5 w-5 text-green-600" />
-                  <span>+998 90 123 45 67</span>
+                  <span>+ 998 94 700 07 70</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <MapPin className="h-5 w-5 text-green-600" />
-                  <span>Toshkent sh., Amir Temur ko'chasi 10-uy</span>
+                  <span>Samarqand shahar, Kaftarcha</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <Clock className="h-5 w-5 text-green-600" />

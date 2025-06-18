@@ -368,30 +368,32 @@ export const api = {
 
     return response.json()
   },
+// Create order
+async createOrder(orderData: CreateOrderRequest, token?: string): Promise<CreateOrderResponse> {
+  const headers: HeadersInit = {
+    "Content-Type": "application/json",
+  }
 
-  // Create order
-  async createOrder(orderData: CreateOrderRequest, token?: string): Promise<CreateOrderResponse> {
-    const headers: HeadersInit = {
-      "Content-Type": "application/json",
-    }
+  if (token) {
+    headers["Authorization"] = `Bearer ${token}`
+  }
 
-    if (token) {
-      headers["Authorization"] = `Bearer ${token}`
-    }
+  const response = await fetch(`${API_BASE_URL}/orders`, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(orderData),
+  })
 
-    const response = await fetch(`${API_BASE_URL}/orders`, {
-      method: "POST",
-      headers,
-      body: JSON.stringify(orderData),
-    })
+  if (!response.ok) {
+    const errorData = await response.json().catch(() => ({}))
+    const errorMessage = errorData.message || "Failed to create order"
+    throw new Error(
+      `${errorMessage}. Sent data: ${JSON.stringify(orderData, null, 2)}`
+    )
+  }
 
-    if (!response.ok) {
-      const errorData = await response.json().catch(() => ({}))
-      throw new Error(errorData.message || "Failed to create order")
-    }
-
-    return response.json()
-  },
+  return response.json()
+},
 
   // Get user orders
   async getUserOrders(

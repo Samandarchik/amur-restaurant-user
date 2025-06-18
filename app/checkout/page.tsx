@@ -245,7 +245,7 @@ export default function CheckoutPage() {
                   <Input
                     id="phone"
                     type="tel"
-                    placeholder="+998 90 123 45 67"
+                    placeholder="+ 998 94 700 07 70"
                     value={customerInfo.phone}
                     readOnly
                     className="bg-gray-50 cursor-not-allowed"
@@ -329,7 +329,7 @@ export default function CheckoutPage() {
                     <Input
                       id="delivery-phone"
                       type="tel"
-                      placeholder="+998 90 123 45 67"
+                      placeholder="+ 998 94 700 07 70"
                       value={deliveryInfo.phone}
                       readOnly
                       className="bg-gray-50 cursor-not-allowed"
@@ -476,10 +476,11 @@ export default function CheckoutPage() {
                     className="flex items-center space-x-3 hover:bg-gray-50 p-2 rounded transition-colors duration-200"
                   >
                     <img
-                      src={item.imageUrl || "/placeholder.svg"}
-                      alt={item.name}
-                      className="w-12 h-12 object-cover rounded-md"
-                    />
+                        src={item.imageUrl ? `https://demo.iqbo.uz${item.imageUrl}` : "/placeholder.svg"}
+                        alt={item.name}
+                        className="w-12 h-12 object-cover rounded-md"
+                      />
+
                     <div className="flex-1 min-w-0">
                       <h4 className="font-medium text-sm">{item.name}</h4>
                       <p className="text-xs text-gray-500">{item.category}</p>

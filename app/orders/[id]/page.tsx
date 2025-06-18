@@ -79,7 +79,7 @@ const mockOrderData: OrderData = {
   delivery_type: "delivery",
   delivery_info: {
     type: "delivery",
-    address: "Toshkent sh., Amir Temur ko'chasi 10-uy",
+    address: "Samarqand shahar, Kaftarcha",
     phone: "+998901234567",
     latitude: 41.2995,
     longitude: 69.2401,

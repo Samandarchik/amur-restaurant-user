@@ -19,6 +19,14 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
     return new Intl.NumberFormat("uz-UZ").format(price) + " so'm"
   }
 
+  // URL ni to'g'irlash funksiyasi
+  const fixImageUrl = (url: string) => {
+    if (url && url.includes('http://localhost:4040')) {
+      return url.replace('http://localhost:4040', 'https://demo.iqbo.uz')
+    }
+    return url
+  }
+
   if (items.length === 0) {
     return (
       <Sheet open={open} onOpenChange={onOpenChange}>
@@ -56,7 +64,7 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
             {items.map((item) => (
               <div key={item.id} className="flex items-center space-x-4 p-4 border rounded-lg">
                 <img
-                  src={item.imageUrl || "/placeholder.svg"}
+                  src={fixImageUrl(item.imageUrl) || "/placeholder.svg"}
                   alt={item.name}
                   className="w-16 h-16 object-cover rounded-md"
                 />

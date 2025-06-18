@@ -93,7 +93,7 @@ export function AuthModal({ open, onOpenChange, defaultTab = "login" }: AuthModa
                 <Input
                   id="login-number"
                   type="tel"
-                  placeholder="+998 90 123 45 67"
+                  placeholder="+ 998 94 700 07 70"
                   value={loginForm.number}
                   onChange={(e) => setLoginForm({ ...loginForm, number: e.target.value })}
                   required
@@ -132,7 +132,7 @@ export function AuthModal({ open, onOpenChange, defaultTab = "login" }: AuthModa
                 <Input
                   id="register-number"
                   type="tel"
-                  placeholder="+998 90 123 45 67"
+                  placeholder="+ 998 94 700 07 70"
                   value={registerForm.number}
                   onChange={(e) => setRegisterForm({ ...registerForm, number: e.target.value })}
                   required
