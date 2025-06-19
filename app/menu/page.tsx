@@ -28,6 +28,13 @@ export default function MenuPage() {
   }
   const searchParams = useSearchParams()
 
+  // Helper function to get category name by key
+  const getCategoryNameByKey = (key: string) => {
+    if (key === "all") return null
+    const category = categories.find((cat) => cat.key === key)
+    return category ? category.name : null
+  }
+
   // Helper function to fix image URL
   const getImageUrl = (imageUrl: string) => {
     if (!imageUrl) return "/placeholder.svg?height=200&width=300"
@@ -87,9 +94,12 @@ export default function MenuPage() {
           limit: 100,
         }
 
-        // Add filters
+        // Add filters - send category name instead of key
         if (selectedCategory !== "all") {
-          params.category = selectedCategory
+          const categoryName = getCategoryNameByKey(selectedCategory)
+          if (categoryName) {
+            params.category = categoryName
+          }
         }
         if (searchQuery) {
           params.search = searchQuery
@@ -145,7 +155,7 @@ export default function MenuPage() {
     if (foods.length > 0) {
       filterAndSort()
     }
-  }, [foods, selectedCategory, searchQuery, sortBy])
+  }, [foods, selectedCategory, searchQuery, sortBy, categories])
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat("uz-UZ").format(price) + " so'm"

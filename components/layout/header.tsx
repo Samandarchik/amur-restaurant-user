@@ -63,7 +63,7 @@ export function Header() {
               Menyu
               <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 group-hover:w-full transition-all duration-200"></span>
             </Link>
-            {isAuthenticated ? (
+            
               <Link
                 href="/orders"
                 className="text-gray-700 hover:text-orange-600 transition-colors duration-200 relative group"
@@ -71,15 +71,7 @@ export function Header() {
                 Buyurtmalarim
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 group-hover:w-full transition-all duration-200"></span>
               </Link>
-            ) : (
-              <Link
-                href="/orders/track"
-                className="text-gray-700 hover:text-orange-600 transition-colors duration-200 relative group"
-              >
-                Buyurtmani kuzatish
-                <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-600 group-hover:w-full transition-all duration-200"></span>
-              </Link>
-            )}
+            
           </nav>
 
           {/* Actions */}
@@ -89,7 +81,7 @@ export function Header() {
               onClick={handlePhoneCall}
             >
               <Phone className="h-4 w-4" />
-              <span>+998 90 123 45 67</span>
+              <span>+998 94 700 07 70</span>
             </div>
 
             <Button
@@ -176,7 +168,7 @@ export function Header() {
                   >
                     Menyu
                   </Link>
-                  {isAuthenticated ? (
+                  
                     <Link
                       href="/orders"
                       className="text-lg font-medium hover:text-orange-600 transition-colors duration-200"
@@ -184,22 +176,14 @@ export function Header() {
                     >
                       Buyurtmalarim
                     </Link>
-                  ) : (
-                    <Link
-                      href="/orders/track"
-                      className="text-lg font-medium hover:text-orange-600 transition-colors duration-200"
-                      onClick={() => setIsMenuOpen(false)}
-                    >
-                      Buyurtmani kuzatish
-                    </Link>
-                  )}
+                  
                   <div className="pt-4 border-t">
                     <div
                       className="flex items-center space-x-2 text-sm text-gray-600 cursor-pointer hover:text-orange-600 transition-colors duration-200"
                       onClick={handlePhoneCall}
                     >
                       <Phone className="h-4 w-4" />
-                      <span>+998 90 123 45 67</span>
+                      <span>+998 94 700 07 70</span>
                     </div>
                   </div>
                 </nav>

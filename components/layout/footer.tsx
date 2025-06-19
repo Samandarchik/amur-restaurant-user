@@ -35,15 +35,15 @@ export function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/orders/track" className="text-gray-400 hover:text-white transition-colors duration-200">
-                  Buyurtmani kuzatish
+                <Link href="/orders" className="text-gray-400 hover:text-white transition-colors duration-200">
+                  Buyurtmalarim
                 </Link>
               </li>
-              <li>
+              {/* <li>
                 <Link href="/about" className="text-gray-400 hover:text-white transition-colors duration-200">
                   Biz haqimizda
                 </Link>
-              </li>
+              </li> */}
               <li>
                 <Link href="/contact" className="text-gray-400 hover:text-white transition-colors duration-200">
                   Aloqa

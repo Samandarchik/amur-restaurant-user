@@ -14,12 +14,12 @@ const features = [
   },
   {
     icon: Truck,
-    title: "Bepul Yetkazib Berish",
-    description: "50,000 so'mdan yuqori buyurtmalarga bepul yetkazib berish",
+    title: "Yetkazib Berish",
+    description: "Sizni uyingizga yetkazib berish xizmati.",
   },
   {
     icon: Users,
-    title: "24/7 Qo'llab-quvvatlash",
+    title: "10:00-00:00 Qo'llab-quvvatlash",
     description: "Har qanday savolingiz bo'lsa, biz doimo yordam berishga tayyormiz",
   },
 ]

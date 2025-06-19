@@ -3,7 +3,7 @@
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
-import { Star, Users, Calendar, MapPin } from "lucide-react"
+import { Star, Users, Calendar, MapPin, Phone } from "lucide-react"
 
 const seatingAreas = [
   {
@@ -28,7 +28,7 @@ const seatingAreas = [
     rating: 4.5,
     reviewCount: 18,
     isPopular: false,
-    priceRange: "50,000 so'm/soat",
+    priceRange: "Bepul",
   },
   {
     id: "terassa",
@@ -52,7 +52,7 @@ const seatingAreas = [
     rating: 4.9,
     reviewCount: 12,
     isPopular: false,
-    priceRange: "150,000 so'm/soat",
+    priceRange: "Bepul",
   },
 ]
 
@@ -73,58 +73,61 @@ export function RestaurantSeating() {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
           {seatingAreas.map((area) => (
-            <Card key={area.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <div className="relative">
-                <img src={area.imageUrl} alt={area.name} className="w-full h-48 object-cover" />
-                {area.isPopular && <Badge className="absolute top-2 left-2 bg-orange-500">Mashhur</Badge>}
-                {area.priceRange !== "Bepul" && <Badge className="absolute top-2 right-2 bg-blue-500">Premium</Badge>}
-              </div>
+  <Card key={area.id} className="overflow-hidden hover:shadow-lg transition-shadow">
+    <div className="relative">
+      <img src={area.imageUrl} alt={area.name} className="w-full h-48 object-cover" />
+      {area.isPopular && <Badge className="absolute top-2 left-2 bg-orange-500">Mashhur</Badge>}
+      {area.priceRange !== "Bepul" && <Badge className="absolute top-2 right-2 bg-blue-500">Premium</Badge>}
+    </div>
 
-              <CardContent className="p-4">
-                <div className="flex items-center justify-between mb-2">
-                  <Badge variant="secondary" className="text-xs">
-                    <Users className="h-3 w-3 mr-1" />
-                    {area.capacity}
-                  </Badge>
-                  <div className="flex items-center gap-1">
-                    <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                    <span className="text-sm text-gray-600">
-                      {area.rating} ({area.reviewCount})
-                    </span>
-                  </div>
-                </div>
+    <CardContent className="p-4">
+      <div className="flex items-center justify-between mb-2">
+        <Badge variant="secondary" className="text-xs">
+          <Users className="h-3 w-3 mr-1" />
+          {area.capacity}
+        </Badge>
+        <div className="flex items-center gap-1">
+          <Star className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+          <span className="text-sm text-gray-600">
+            {area.rating} ({area.reviewCount})
+          </span>
+        </div>
+      </div>
 
-                <h3 className="font-semibold text-lg mb-2">{area.name}</h3>
-                <p className="text-gray-600 text-sm mb-3 line-clamp-2">{area.description}</p>
+      <h3 className="font-semibold text-lg mb-2">{area.name}</h3>
+      <p className="text-gray-600 text-sm mb-3 line-clamp-2">{area.description}</p>
 
-                <div className="flex flex-wrap gap-1 mb-3">
-                  {area.features.map((feature, index) => (
-                    <Badge key={index} variant="outline" className="text-xs">
-                      {feature}
-                    </Badge>
-                  ))}
-                </div>
+      <div className="flex flex-wrap gap-1 mb-3">
+        {area.features.map((feature, index) => (
+          <Badge key={index} variant="outline" className="text-xs">
+            {feature}
+          </Badge>
+        ))}
+      </div>
 
-                <div className="flex items-center gap-2 mb-3">
-                  <MapPin className="h-4 w-4 text-gray-400" />
-                  <span className="text-sm text-gray-600">{area.priceRange}</span>
-                </div>
+      <div className="flex items-center gap-2 mb-3">
+        <MapPin className="h-4 w-4 text-gray-400" />
+        <span className="text-sm text-gray-600">{area.priceRange}</span>
+      </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="text-sm text-gray-600">
-                    Bron qilish
-                  </div>
-                  <Button
-                    size="sm"
-                    onClick={() => handleBooking(area.id, area.name)}
-                  >
-                    <Calendar className="h-4 w-4 mr-1" />
-                    Tanlash
-                  </Button>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
+      <div className="flex items-center justify-between">
+        <div className="text-sm text-gray-600">
+          Bron qilish
+        </div>
+        <div 
+          className="flex items-center gap-2 text-white px-3 py-2 rounded-lg cursor-pointer transition-colors duration-200"
+          style={{ backgroundColor: '#101827' }}
+          onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#101827'}
+          onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#101827'}
+          onClick={() => window.location.href = "tel:+998947000770"}
+        >
+          <Phone className="h-4 w-4" />
+          <span className="text-sm font-medium">+998 94 700 07 70</span>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
+))}
         </div>
       </div>
     </section>

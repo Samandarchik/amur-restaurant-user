@@ -381,8 +381,8 @@ export default function OrderDetailsPage() {
 
             {/* Actions */}
             <div className="space-y-3">
-              <Button variant="outline" className="w-full" onClick={() => router.push("/orders/track")}>
-                Buyurtmani kuzatish
+              <Button variant="outline" className="w-full" onClick={() => router.push("/orders")}>
+                Buyurtmalarim
               </Button>
 
               {orderData.status === "pending" && (

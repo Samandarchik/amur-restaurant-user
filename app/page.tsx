@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useRouter, useSearchParams } from "next/navigation"
 import { HeroSection } from "@/components/hero-section"
 import { RestaurantSeating } from "@/components/featured-foods"
-import { Categories } from "@/components/categories"
+// import { Categories } from "@/components/categories"
 import { AboutSection } from "@/components/about-section"
 
 export default function HomePage() {
@@ -27,7 +27,7 @@ export default function HomePage() {
   return (
     <div className="min-h-screen">
       <HeroSection />
-      <Categories />
+      {/* <Categories /> */}
       <RestaurantSeating />
       <AboutSection />
     </div>
