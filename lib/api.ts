@@ -1,4 +1,4 @@
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://demo.iqbo.uz/api"
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "https://uzjoylar-yoqj.onrender.com/api"
 
 // API response types
 export interface ApiResponse<T> {

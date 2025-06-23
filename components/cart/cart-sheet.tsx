@@ -31,34 +31,34 @@ export function CartSheet({ open, onOpenChange }: CartSheetProps) {
     // Localhost URLlarini to'g'rirlash (barcha mumkin bo'lgan portlar)
     if (url.includes('localhost') || url.includes('127.0.0.1')) {
       // Har qanday localhost URLni almashtirish
-      const fixed = url.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/g, 'https://demo.iqbo.uz')
+      const fixed = url.replace(/https?:\/\/(localhost|127\.0\.0\.1)(:\d+)?/g, 'https://uzjoylar-yoqj.onrender.com')
       console.log('Fixed localhost URL:', fixed)
       return fixed
     }
     
     // Agar URL /uploads/ dan boshlansa, to'liq URL yasash
     if (url.startsWith('/uploads/')) {
-      const fixed = `https://demo.iqbo.uz${url}`
+      const fixed = `https://uzjoylar-yoqj.onrender.com${url}`
       console.log('Fixed relative URL:', fixed)
       return fixed
     }
     
     // Agar URL uploads/ dan boshlansa (slash yoq), to'liq URL yasash
     if (url.startsWith('uploads/')) {
-      const fixed = `https://demo.iqbo.uz/${url}`
+      const fixed = `https://uzjoylar-yoqj.onrender.com/${url}`
       console.log('Fixed relative URL without slash:', fixed)
       return fixed
     }
     
     // Agar URL allaqachon to'g'ri bo'lsa
-    if (url.startsWith('https://demo.iqbo.uz')) {
+    if (url.startsWith('https://uzjoylar-yoqj.onrender.com')) {
       console.log('URL allaqachon to\'g\'ri:', url)
       return url
     }
     
     // Boshqa hollarda ham demo.iqbo.uz ga yo'naltirish
     if (!url.startsWith('http')) {
-      const fixed = `https://demo.iqbo.uz/${url.replace(/^\/+/, '')}`
+      const fixed = `https://uzjoylar-yoqj.onrender.com/${url.replace(/^\/+/, '')}`
       console.log('Fixed other URL:', fixed)
       return fixed
     }
